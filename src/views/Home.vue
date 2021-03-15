@@ -25,7 +25,7 @@
       </v-container>
       <LandingInfo class="mt-10"/>
       <LandingInfoSmall 
-      @openForm="contactForm" 
+      @openModal="contactForm" 
       class="landing_info_small my-0"
       @userType="typeUser"
       />
@@ -61,7 +61,7 @@ export default {
   },
   methods: {
       contactForm(data) {
-          this.$emit('openForm', data)
+          this.$emit('openModal');
       },
       typeUser(data) {
         this.$emit('userForm', data)

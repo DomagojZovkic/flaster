@@ -112,7 +112,7 @@
         </template>
         <div class="landing_title_box">
             <p class="drivers_subtitle">Provozajte se za dodatnu zaradu.<br><br> <span class="drivers_subtitle_dash"></span></p>
-            <h1 class="white--text"  style="font-family: 'Inter', sans-serif !important;">Zaradite do 1000 kuna mjesečno. <br> Jednostavno, brzo i bez skrivenih troškova.</h1>
+            <h1 class="white--text"  style="font-family: 'Inter', sans-serif !important;">Zaradite do 1800 kuna mjesečno. <br> Jednostavno, brzo i bez skrivenih troškova.</h1>
         </div>
         <v-img :src="require('@/assets/bandage_larg_unfold.svg')" max-width="800px" class="landing_bandage" cover />
     </v-img>

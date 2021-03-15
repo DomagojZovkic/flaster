@@ -2,12 +2,10 @@
   .desktop-nav-wrapper {
     button {
       color: #670A4A !important;
-      &:last-child {
-        margin-left: 50px;
+      margin-left: 30px;
+      &:first-child {
+        margin-left: 0;
       }
-      // .bandage_link {
-      //   display: none;
-      // }
     }
     button.active {
       padding: 25px !important;
@@ -15,14 +13,30 @@
       box-shadow: 0px 10px 20px rgba(175, 48, 134, 0.25);
       border-radius: 20px;
       color: white !important;
-      // .bandage_link {
-      //   display: block;
-      //   height: 100px;
-      //   width: 100px;
-      //   position: absolute;
-      //   top: -55px;
-      //   left: -65px;
-      // }
+    }
+    .last-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #E3B505 !important;
+      border: 2px solid #E3B505;
+
+      &:hover {
+        color: #670A4A !important;
+        border-color: #670A4A;
+        transition: all 0.25s ease;
+      }
+    }
+  }
+  .last-btnMobile {
+    .v-list-item__icon i {
+      color: #E3B505;
+    }
+    .v-list-item__title {
+      font-family: 'Inter', sans-serif !important;
+      font-weight: 700;
+      font-size: 14px;
+      color: #E3B505;
     }
   }
 </style>
@@ -52,7 +66,6 @@
         v-scroll-to="'#app'"
         >
         ZA BRENDOVE I AGENCIJE
-        <!-- <v-img :src="require(`@/assets/bandage_nav.svg`)" contain class="bandage_link"></v-img> -->
         </v-btn>
         <v-btn 
         text 
@@ -62,7 +75,13 @@
         v-bind:class="{ active: isActiveDrivers }"
         >
         ZA VOZAČE
-        <!-- <v-img :src="require(`@/assets/bandage_nav.svg`)" contain class="bandage_link"></v-img> -->
+        </v-btn>
+        <v-btn 
+        text
+        class="last-btn"
+        @click="contactForm"
+        >
+        MEDIA KIT
         </v-btn>
       </div>
     </v-app-bar>
@@ -90,6 +109,19 @@
             <v-list-item-title style="font-family: 'Inter', sans-serif !important;font-weight: 700;font-size: 14px;color:#670A4A;">{{ item.text }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+
+        <v-list-item
+          class="last-btnMobile"
+          @click="contactForm"
+        >
+          <v-list-item-icon>
+            <v-icon large>mdi-form-select</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>MEDIA KIT</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
       </v-list>
     </v-navigation-drawer>
   </nav>
@@ -97,9 +129,6 @@
 
 <script>
 export default {
-  directives: {
-    
-  },
   data() {
     return {
       menu: false,
@@ -111,9 +140,8 @@ export default {
       mobileMenu: true,
       isActiveBrands: false,
       isActiveDrivers: false,
+      openDIalog: true
     };
-  },
-  computed: {
   },
   watch: {
     $route(to, next) {
@@ -134,15 +162,19 @@ export default {
       }
     },
     displayMenu() {
-        if (window.innerWidth >= 768) {
+        if (window.innerWidth >= 991) {
         this.mobileMenu = false
       } else {
         this.mobileMenu = true
       }
     },
     onResize () {
-        this.displayMenu()
-      }
+      this.displayMenu()
+    },
+    contactForm() {
+        this.$emit('openModal');
+        this.$emit('userForm', 'mediaKit');
+    }
   },
   mounted() {
     this.displayMenu();

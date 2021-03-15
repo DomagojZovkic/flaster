@@ -1,0 +1,37 @@
+:q
+#!/bin/bash
+
+# local path
+LOCAL="./"
+
+# development is default remote repository
+SERVER="root@207.154.239.244:/var/www/flaster/staging/"
+DOMAIN=".flaster.dev"
+DEV="hp"
+REMOTE=$SERVER$DEV$DOMAIN
+ERRORSTRING="Error. Please make sure you've indicated correct parameters"
+
+# 1.  parameter is name of environment  [dev, staging, prod]
+# 2.  parameter is action, in this case [live] -> check connection and test
+# 3.  parameter is action, in this case [go] -> send new features on production
+
+if [ $# -eq 0 ]
+then
+  echo $ERRORSTRING;
+elif [[ $1 == "flaster" ]]
+then
+  echo $REMOTE
+  if [[ $2 == "live" ]] && [[ -z $3 ]]
+  then
+    echo "Running dry-run"
+    rsync --dry-run -az --force --delete --progress --exclude-from=rsync_exclude.txt -e "ssh -p22" $LOCAL $REMOTE
+  elif
+    [[ $3 == "go" ]]
+  then
+    echo "Running actual deploy"
+    rsync -az --force --delete --progress --exclude-from=rsync_exclude.txt -e "ssh -p22" $LOCAL $REMOTE
+  else
+    echo
+    $ERRORSTRING;
+  fi
+fi

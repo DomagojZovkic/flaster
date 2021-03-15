@@ -1,7 +1,7 @@
 <template>
     <v-container style="font-family: 'Inter', sans-serif !important;">
         <h1 style="color:#670A4A;" class="my-10">Politika privatnosti</h1>
-        <h5 style="color:#670A4A;" class="mb-10">Trgovačko društvo FIVITO GRUPA j.d.o.o. sa sjedištem u Zagrebu, Nova Cesta 119, OIB: 34559757098 kao Voditelj obrade, dalje u tekstu: („DRUŠTVO“) u skladu sa načelom transparentnosti i odredbama Opće uredbe o zaštiti osobnih podatka (GDPR) dana 15.09.2020. donosi slijedeća:</h5>
+        <h5 style="color:#670A4A;" class="mb-10">Trgovačko društvo FLASTER MEDIA d.o.o. sa sjedištem u Zagrebu, Kuzminečka 49, OIB: 87751249463 kao Voditelj obrade, dalje u tekstu: („DRUŠTVO“) u skladu sa načelom transparentnosti i odredbama Opće uredbe o zaštiti osobnih podatka (GDPR) dana 15.09.2020. donosi slijedeća:</h5>
         <v-btn
         style="font-family: 'Inter', sans-serif !important;font-weight: 800;font-size: 16px;color:#FFF;background-color: #670A4A;border-radius: 20px;display:block;"
         class="mx-auto"
@@ -196,7 +196,7 @@
 
 <script>
 export default {
-     data() {
+    data() {
         return {
             url: require(`@/assets/Politika-privatnosti-FLASTER.pdf`)
         }

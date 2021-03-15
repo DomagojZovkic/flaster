@@ -77,17 +77,9 @@
 <script>
 
 export default {
-    data() {
-        return {
-            openDIalog: false
-        }
-    },
     methods: {
-        openDialog() {
-            return this.openDIalog =! this.openDIalog 
-        },
         contactForm() {
-            this.$emit('openForm', this.openDialog())
+            this.$emit('openModal');
             this.$emit('userType', 'drivers')
         }
     }

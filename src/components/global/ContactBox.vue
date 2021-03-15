@@ -54,6 +54,7 @@
      >mdi-close</v-icon>
        <ContactForm 
        :userType="titleFor"
+       :resetForm="resetForm"
        />
      </v-card>
     </v-dialog>
@@ -67,10 +68,13 @@ import ContactForm from '@/components/forms/ContactForm'
     components: {
         ContactForm
     },
+    props: {
+      modal: Boolean,
+      typeUser: String
+    },
     watch: {
-      openBox() {
-        this.dialog = this.openBox
-        if (this.openBox == false) {
+      modal() {
+        if (this.modal) {
           this.dialog = true
         }
       },
@@ -78,19 +82,18 @@ import ContactForm from '@/components/forms/ContactForm'
         this.titleFor = this.typeUser
       }
     },
-    props: {
-      openBox: Boolean,
-      typeUser: String
-    },
     data () {
       return {
         dialog: false,
-        titleFor: ''
+        titleFor: '',
+        resetForm: false
       }
     },
     methods: {
       closeModal() {
-        this.dialog = false
+        this.dialog = false;
+        this.resetForm = !this.resetForm;
+        this.$emit('closeModal');
       }
     },
     mounted() {

@@ -6,22 +6,25 @@
 <template>
   <v-app>
     <ContactBox 
-    :openBox="openModal"
+    :modal="modal"
     :typeUser="userType"
+    @closeModal="closeModal"
     />
-    <Header />
+    <Header
+      @openModal="openModal"
+      @userForm="userTypes"
+     />
     <v-main>
       <router-view 
-      @openForm="formOpen"
+      @openModal="openModal"
       @userForm="userTypes"
       ></router-view>
     </v-main>
-    <Footer @openForm="formOpen"/>
+    <Footer @openModal="openModal"/>
   </v-app>
 </template>
 
 <script>
-/* eslint-disable vue/no-unused-components */
 import Header from '@/components/global/Header'
 import Footer from '@/components/global/Footer'
 import ContactBox from '@/components/global/ContactBox'
@@ -38,17 +41,22 @@ export default {
   data: () => ({
     aws_url: process.env.AWS_URL,
     bandageAid: null,
-    openModal: false,
+    modal: false,
     userType: ''
   }),
+
   methods: {
-    formOpen(data) {
-      this.openModal = data
+    openModal(data) {
+      this.modal = true
+    },
+    closeModal() {
+      this.modal = false;
     },
     userTypes(data) {
       this.userType = data
     }
   },
+
   metaInfo() {
         return {
             title: `Flaster | Provozajte svoj brend`,

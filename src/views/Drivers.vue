@@ -16,7 +16,7 @@
         <Landing />
         <v-container>
             <LandingBox 
-            @openForm="contactForm"
+            @openModal="contactForm"
             @userType="typeUser"
             />
         </v-container>
@@ -27,14 +27,17 @@
             <LandingCarSlider />
         </v-container>
         <v-container>
-            <ExtensionTabs @openForm="contactForm"/>
+            <DownloadManual />
+        </v-container>
+        <v-container>
+            <ExtensionTabs @openModal="contactForm"/>
         </v-container>
         <LandingInfo 
-        @openForm="contactForm"
+        @openModal="contactForm"
         @userType="typeUser"
         />
         <LandingInfoSmall 
-        @openForm="contactForm"
+        @openModal="contactForm"
         @userType="typeUser" 
         class="landing_info_small_drivers my-0"/>
     </div>
@@ -45,6 +48,7 @@ import Landing from '@/components/drivers/Landing'
 import LandingBox from '@/components/drivers/LandingBox'
 import LandingNfoBoxes from '@/components/drivers/LandingNfoBoxes'
 import LandingCarSlider from '@/components/drivers/LandingCarSlider'
+import DownloadManual from '@/components/drivers/DownloadManual'
 import ExtensionTabs from '@/components/drivers/ExtensionTabs'
 import LandingInfo from '@/components/drivers/LandingInfo'
 import LandingInfoSmall from '@/components/drivers/LandingInfoSmall'
@@ -55,6 +59,7 @@ export default {
         LandingBox,
         LandingNfoBoxes,
         LandingCarSlider,
+        DownloadManual,
         ExtensionTabs,
         LandingInfo,
         LandingInfoSmall
@@ -66,7 +71,7 @@ export default {
     },
     methods: {
       contactForm(data) {
-          this.$emit('openForm', data)
+          this.$emit('openModal');
       },
       typeUser(data) {
         this.$emit('userForm', data)

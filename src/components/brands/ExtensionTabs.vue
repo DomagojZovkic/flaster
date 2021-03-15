@@ -79,12 +79,12 @@
 
         <v-expansion-panel>
             <v-expansion-panel-header>Tko su vozači?</v-expansion-panel-header>
-            <v-expansion-panel-content>Naša partner vozila su provjereni vozači rideshare vozila koji na mjesečnoj bazi prijeđu minimalno 1500km. Vozila su nova (do 5 godina) te bez vidljivih vanjskih oštećenja.</v-expansion-panel-content>
+            <v-expansion-panel-content>Naša partner vozila su provjereni vozači rideshare vozila koji na mjesečnoj bazi prijeđu minimalno 4600 km. Vozila su nova (do 5 godina) te bez vidljivih vanjskih oštećenja.</v-expansion-panel-content>
         </v-expansion-panel>
 
         <v-expansion-panel>
                 <v-expansion-panel-header>Koje su sve mogućnosti Flaster platforme?</v-expansion-panel-header>
-                <v-expansion-panel-content>Platforma prati dnevno i mjesečno kretanje brendiranog vozila. Omogućuje praćenje prijeđenih kilometara, broj sati provedenih na cesti, u zonama gdje se vozilo najviše kretalo i zadržavalo (termalne mape), impresija pješaka (broj osoba koje su se zatekle u blizini i vidjele vozilo) te digital retargeting osoba koje su se zatekle u blizini vozila.</v-expansion-panel-content>
+                <v-expansion-panel-content>Platforma prati dnevno i mjesečno kretanje brendiranog vozila. Omogućuje praćenje prijeđenih kilometara, broj sati provedenih na cesti, u zonama gdje se vozilo najviše kretalo i zadržavalo (termalne mape), impresija pješaka (broj osoba koje su se zatekle u blizini i vidjele vozilo), demografski podaci zabilježenih kontakata, digital retargeting osoba koje su se zatekle u blizini vozila te sampling unutar vozila i pojavljivanje brendiranih vozila na dogovorenoj lokaciji/eventu.</v-expansion-panel-content>
         </v-expansion-panel>
 
         <v-expansion-panel>
@@ -99,7 +99,7 @@
 
         <v-expansion-panel>
                 <v-expansion-panel-header>Kako birate vozače za pojedine kampanje?</v-expansion-panel-header>
-                <v-expansion-panel-content>Da bi vozač zadovoljio standarde  za kampanju potrebno je da je minimalno 1500km mjesečno na cesti u gradskim zonama, a vozilo mora biti novo i neoštećeno te vozač ne smije biti kažnjavan.</v-expansion-panel-content>
+                <v-expansion-panel-content>Da bi vozač zadovoljio standarde za kampanju potrebno je da je minimalno 4600 km mjesečno na cesti u gradskim zonama, a vozilo mora biti novo i neoštećeno.</v-expansion-panel-content>
         </v-expansion-panel>
 
         <v-expansion-panel>
@@ -124,7 +124,7 @@
 
         <v-expansion-panel>
                 <v-expansion-panel-header>Kako garantirate kvalitetu i premium izgled reklame na svakom tipu vozila?</v-expansion-panel-header>
-                <v-expansion-panel-content>Naš  tim u suradnji s  kreativnom agencijom brenda priprema materijale kako bi reklama na svakom vozilu imala premium izgled. Ukoliko nemate svoju kreativnu agenciju, možemo vam ponuditi usluge naše partner agencije Kofein koja prema vašim uputama i željama može pripremiti materijale.</v-expansion-panel-content>
+                <v-expansion-panel-content>Naš kreativni tim u suradnji s kreativnom agencijom brenda priprema materijale kako bi reklama na svakom vozilu imala premium izgled. Prijedlog dizajna i priprema za svako vozilo su u nadležnosti našeg kreativnog tima i uključeno je u cijenu.</v-expansion-panel-content>
         </v-expansion-panel>
 
         <v-expansion-panel>
@@ -139,18 +139,10 @@
 <script>
 
 export default {
-    data() {
-        return {
-            openDIalog: false
-        }
-    },
     methods: {
-        openDialog() {
-            return this.openDIalog =! this.openDIalog 
-        },
         contactForm() {
-            this.$emit('openForm', this.openDialog())
-            this.$emit('userType', 'brands')
+            this.$emit('openModal');
+            this.$emit('userType', 'brands');
         }
     }
 }

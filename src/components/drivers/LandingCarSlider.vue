@@ -137,15 +137,15 @@ export default {
             sliderData: [
                 {
                     img: 'fiat-ful.png',
-                    price: '900 - 1000 kuna mjesečno'
+                    price: '1100 - 1800 kuna mjesečno'
                 },
                 {
                     img: 'fiat-partial.png',
-                    price: '600 - 700 kuna mjesečno'
+                    price: '800 - 1500 kuna mjesečno'
                 },
                 {
                     img: 'fiat-cut.png',
-                    price: '600 - 700 kuna mjesečno'
+                    price: '800 - 1500 kuna mjesečno'
                 },
             ]
         }

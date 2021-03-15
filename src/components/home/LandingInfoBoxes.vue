@@ -39,7 +39,7 @@ export default {
                 },
                 {
                     title:'Provozajte se <br> do dodatne zarade.',
-                    text:'Zaradite do 1000 kuna mjesečno.<br> Jednostavno, brzo i bez skrivenih troškova',
+                    text:'Zaradite do 1800 kuna mjesečno.<br> Jednostavno, brzo i bez skrivenih troškova',
                     button:' Postanite Flaster vozač',
                     link:'Drivers'
                 }

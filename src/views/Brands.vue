@@ -16,7 +16,7 @@
         <Landing />
         <v-container>
             <LandingBox 
-            @openForm="contactForm"
+            @openModal="contactForm"
             @userType="typeUser"
             />
         </v-container>
@@ -31,16 +31,16 @@
         <!-- <LandingBoxes /> -->
         <v-container>
             <ExtensionTabs 
-            @openForm="contactForm"
+            @openModal="contactForm"
             @userType="typeUser"
              />
         </v-container>
         <LandingInfo 
-        @openForm="contactForm"
+        @openModal="contactForm"
         @userType="typeUser"
         />
         <LandingInfoSmall  
-        @openForm="contactForm"
+        @openModal="contactForm"
         @userType="typeUser"  
         class="landing_info_small_brands my-0"/>
     </div>
@@ -78,7 +78,7 @@ export default {
   },
   methods: {
       contactForm(data) {
-          this.$emit('openForm', data)
+          this.$emit('openModal');
       },
       typeUser(data) {
         this.$emit('userForm', data)
